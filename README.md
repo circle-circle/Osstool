@@ -3,7 +3,7 @@ Osstool
 
 Aliyun  Oss  Tool
 将该脚本编译结合成二进制文件（.exe）
-使其方便的运行于windows平台下
+使其不需要搭建任何环境即可运行于windows平台下
 
 
 
@@ -20,7 +20,7 @@ Aliyun  Oss  Tool
 2) 创建一个bucket
 3) 删除一个bucket (无论该bucket是否为空）
  
-4）列出一个bucket下的所有object
+4）列出一个bucket下的所有object  
 5) 删除一个bucket下的某个object，无法接受中文字符
 6) 删除一个bucket下的所有object,保留bucket名称，和选项3类似
 7）搬迁object,将同一节点下的bucket中的某个object移动到另一个bucket下，不保留源bucket下的object
