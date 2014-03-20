@@ -179,7 +179,7 @@ def changeaddress(hostnum):
         with file(configfile,'wb+') as f:
             pickle.dump(D,f)
         oss = OssAPI(Host,ACCESS_ID,SECRET_ACCESS_KEY)
-        print u' 切换成功，现在您位于 %s' %Host
+        print u'现在您位于 %s' %Host
         print sep
     else:
         print u'请先登录'
@@ -194,17 +194,17 @@ def choicelist():
         choice = raw_input(u'''
           1)列出所有的bucket
           2)创建新的bucket
-          3)删除bucket
+          3)删除bucket  请慎重选择，无法恢复
 
           4)列出所选bucket下的objects
-          5)删除一个object 
+          5)删除一个object  
           6)删除一个bucket下的所有object,保留bucket名称，和选项3类似
-          7)搬迁object   object小于200M
-          8)复制object   object小于200M
-          9)上传文件  大于5G的文件自动选择断点续传方式
+          7)搬迁object   
+          8)复制object   
+          9)上传文件  大于5G的文件自动选择断点续传
           
           10)切换节点
-          0)退出
+          0)退出  
           00)注销
           请输入需要操作的数字编号:'''.encode('mbcs'))
         if choice == '1':
@@ -214,7 +214,13 @@ def choicelist():
             createbucket(bucket)
         elif choice == '3':
             bucket = raw_input(u'请输入需要删除的bucket名称:'.encode('mbcs'))
-            deletebucket(bucket)
+            print u'请确认要删除的bucket为 %s，删除后将无法恢复' %bucket
+            answer = raw_input('Are you sure y/n:').lower()
+            if answer =='y':
+                deletebucket(bucket)  
+            else:
+                print u'请重新选择操作'
+                print sep           
         elif choice == '4':
             bucket = raw_input(u'请输入需要列出所有objects的bucket名称:'.encode('mbcs'))
             listallobject(bucket)
@@ -224,8 +230,14 @@ def choicelist():
             object = smart_code(object)
             deleteobject(bucket,object)
         elif choice == '6':
-            bucket = raw_input(u'请输入需要完全删除object的bucket名称:'.encode('mbcs'))
-            deleteobjects(bucket)
+            bucket = raw_input(u'请输入需要完全删除objects的bucket名称:'.encode('mbcs'))
+            print u'请确认要删除所有objects的bucket为 %s，删除后将无法恢复' %bucket
+            answer = raw_input('Are you sure y/n:').lower()
+            if answer =='y':
+                deleteobjects(bucket) 
+            else:
+                print u'请重新选择操作'
+                print sep           
         elif choice == '7':
             source_bucket =raw_input(u'请输入需要移动object所在的源bucket名称:'.encode('mbcs'))
             target_bucket = raw_input(u'请输入需要移动object的目的bucket名称:'.encode('mbcs'))
