@@ -1,12 +1,14 @@
 Osstool
 =======
 
+v0.1  -2014/3/19
 Aliyun  Oss  Tool
 将该脚本编译结合成二进制文件（.exe）
 使其不需要搭建任何环境即可运行于windows平台下
 
 
 
+v0.2 -2014/3/20
 相对于v0.1的版本，改动如下
 1，可以接受中文文本输入
 2，提示输入更改为中文，更容易接受
@@ -33,7 +35,7 @@ Aliyun  Oss  Tool
 
 
 
-v0.2 -2014/4/11
+v0.3 -2014/4/11
 使用git push osskit.py  osskit.exe
 增加批量修改object主机头以及统计bucket大小和数量的工具osskit.exe
 
