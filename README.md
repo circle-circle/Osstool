@@ -33,7 +33,7 @@ Aliyun  Oss  Tool
 
 
 
-v0.2
+v0.2 -2014/4/11
 使用git push osskit.py  osskit.exe
 增加批量修改object主机头以及统计bucket大小和数量的工具osskit.exe
 
