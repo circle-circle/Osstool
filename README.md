@@ -32,3 +32,9 @@ Aliyun  Oss  Tool
 00）注销退出，下次登录需要再次输入验证信息
 
 
+
+v0.2
+使用git push osskit.py  osskit.exe
+增加批量修改object主机头以及统计bucket大小和数量的工具osskit.exe
+
+
